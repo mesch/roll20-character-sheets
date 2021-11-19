@@ -600,7 +600,7 @@
 					<h4 class="sheet-center">Level and Experience<span class="sheet-pictos-three">d</span></h4>
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-center" title="This is automatically calculated from your individual class levels listed in the class section">
-							<input class="sheet-underlined" type="number" name="attr_level" value="@{barbarian_level} + @{bard_level} + @{cleric_level} + @{druid_level} + @{fighter_level} + @{monk_level} + @{paladin_level} + @{ranger_level} + @{rogue_level} + @{sorcerer_level} + @{warlock_level} + @{wizard_level}" disabled="disabled">
+							<input class="sheet-underlined" type="number" name="attr_level" value="@{experimental_engineer_level} + @{field_analyst_level} + @{operational_security_level} + @{personnel_development_level} + @{field_agent_level} + @{bprd_consultant_level}" disabled="disabled">
 							<br/>Overall Level</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center" title="This is a bonus for you being proficient in a given task.  This bonus automatically increases as you level up and is used automatically in various rolls">
 							<input class="sheet-underlined" type="number" name="attr_PB" value="(ceil((@{level})/1e10) + ceil((@{level})/4))" disabled="disabled">
@@ -674,58 +674,32 @@
 						<div class="sheet-col-1-7 sheet-center sheet-small-label">Max</div>
 						<div class="sheet-col-1-7 sheet-center sheet-small-label">&nbsp;</div>
 					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-3-7 sheet-hd-row">Sorcerer, Wizard</div>
-						<div class="sheet-col-1-7 sheet-center sheet-hd-row">d6</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d6" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d6_max" value="@{sorcerer_level} + @{wizard_level} " disabled="disabled">
-						</div>
-						<div class="sheet-col-1-7 sheet-center">
-							<button type="roll" class="sheet-roll" name="roll_Use_HD_d6" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d6}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d6 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
-						</div>
-					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-3-7 sheet-hd-row">Bard, Cleric, Druid, Rogue, Monk, Warlock</div>
-						<div class="sheet-col-1-7 sheet-center sheet-hd-row">d8</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d8" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d8_max" value="@{bard_level} + @{cleric_level} + @{druid_level} + @{rogue_level} + @{monk_level} + @{warlock_level}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-7 sheet-center">
-							<button type="roll" class="sheet-roll" name="roll_Use_HD_d8" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d8}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d8 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
-						</div>
-					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-3-7 sheet-hd-row">Fighter, Paladin, Ranger</div>
-						<div class="sheet-col-1-7 sheet-center sheet-hd-row">d10</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d10" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d10_max" value="@{fighter_level} + @{paladin_level} + @{ranger_level}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-7 sheet-center">
-							<button type="roll" class="sheet-roll" name="roll_Use_HD_d10" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d10}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d10 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
-						</div>
-					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-3-7 sheet-hd-row">Barbarian</div>
-						<div class="sheet-col-1-7 sheet-center sheet-hd-row">d12</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d12" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-7">
-							<input type="number" name="attr_hd_d12_max" value="@{barbarian_level}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-7 sheet-center">
-							<button type="roll" class="sheet-roll" name="roll_Use_HD_d12" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d12}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d12 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
-						</div>
-					</div>
+                    <div class="sheet-row">
+                        <div class="sheet-col-3-7 sheet-hd-row">Experimental Engineer, Field Analyst, Operational Security, Personnel Development</div>
+                        <div class="sheet-col-1-7 sheet-center sheet-hd-row">d8</div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_hd_d8" value="0" min="0" step="1">
+                        </div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_hd_d8_max" value="@{experimental_engineer_level} + @{field_analyst_level} + @{operational_security_level} + @{personnel_development_level}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-7 sheet-center">
+                            <button type="roll" class="sheet-roll" name="roll_Use_HD_d8" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d8}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d8 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
+                        </div>
+                    </div>
+                    <div class="sheet-row">
+                        <div class="sheet-col-3-7 sheet-hd-row">Field Agent, BPRD Consultant</div>
+                        <div class="sheet-col-1-7 sheet-center sheet-hd-row">d10</div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_hd_d10" value="0" min="0" step="1">
+                        </div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_hd_d10_max" value="@{field_agent_level} + @{bprd_consultant_level}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-7 sheet-center">
+                            <button type="roll" class="sheet-roll" name="roll_Use_HD_d10" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d10}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d10 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
+                        </div>
+                    </div>
 					<h4 class="sheet-center">Other <span class="sheet-pictos">o</span></h4>
 					<div class="sheet-row">
 						<div class="sheet-col-1-5 sheet-center sheet-small-label sheet-sub-header sheet-padr">Inspiration?</div>
@@ -3308,57 +3282,31 @@
 						<div class="sheet-col-1 sheet-center sheet-small-label">Class Levels</div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Barbarian</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_barbarian_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Field Agent</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_field_agent_level" value="0" min="0" step="1">
 						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Bard</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_bard_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Field Analyst</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_field_analyst_level" value="0" min="0" step="1">
 						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Cleric</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_cleric_level" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Druid</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_druid_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Operational Security</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_operational_security_level" value="0" min="0" step="1">
 						</div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Fighter</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_fighter_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">BPRD Constultant</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_bprd_consultant_level" value="0" min="0" step="1">
 						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Monk</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_monk_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Experimental Engineer</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_experimental_engineer_level" value="0" min="0" step="1">
 						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Paladin</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_paladin_level" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Ranger</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_ranger_level" value="0" min="0" step="1">
-						</div>
-					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Rogue</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_rogue_level" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Sorcerer</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_sorcerer_level" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Warlock</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_warlock_level" value="0" min="0" step="1">
-						</div>
-						<div class="sheet-col-1-8 sheet-center sheet-margin-top">Wizard</div>
-						<div class="sheet-col-1-8 sheet-center sheet-padr">
-							<input type="number" name="attr_wizard_level" value="0" min="0" step="1">
+						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Personnel Development</div>
+						<div class="sheet-col-1-6 sheet-center sheet-padr">
+							<input type="number" name="attr_personnel_development_level" value="0" min="0" step="1">
 						</div>
 					</div>
 				</div>
@@ -3367,6 +3315,7 @@
 						<div class="sheet-col-1 sheet-center sheet-small-label">Class Resources</div>
 					</div>
 					<div class="sheet-row">
+
 						<div class="sheet-col-5-12 sheet-center sheet-small-label">Name</div>
 						<div class="sheet-col-1-4 sheet-center sheet-small-label">Recharge</div>
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Current</div>
