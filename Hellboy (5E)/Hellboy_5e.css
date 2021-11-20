@@ -250,7 +250,7 @@ input.sheet-is-npc {
 }
 
 span.sheet-is-npc-tab::before {
-	content: "Player Sheet";
+	content: "Player Sheet - v0.0.1";
 }
 
 span.sheet-is-npc-tab {
@@ -825,10 +825,6 @@ textarea,
 .sheet-align-center,
 .sheet-rolltemplate-5eDefault .sheet-align-center {
 	text-align: center;
-}
-
-.logo img {
-	width: 30%;
 }
 
 input[type=number],

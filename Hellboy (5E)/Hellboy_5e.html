@@ -37,21 +37,34 @@
 		</div>
 		<!-- close outer modal div -->
 	</div>
-	<div class="sheet-core-header sheet-padb">
+	<div class="sheet-core-header">
 		<div class="sheet-row">
-			<div class="sheet-col-1-3 sheet-margin-top logo"><img src="https://static.wikia.nocookie.net/logopedia/images/4/41/Hellboy-2019-movie-logo.png/revision/latest" alt="Hellboy (5th edition)"></div>
-			<div class="sheet-col-1-8 sheet-small-label sheet-center">
-				<input class="sheet-underlined sheet-center" type="text" name="attr_sheet_version" value="0.0.1" disabled="disabled" />
-				<br/>Sheet Version</div>
-			<div class="sheet-col-1-4 sheet-small-label sheet-center">
-				<input class="sheet-underlined sheet-center" type="text" name="attr_character_name">
-				<br/>Character Name</div>
-			<div class="sheet-col-1-8 sheet-small-label sheet-center">
-				<input class="sheet-underlined sheet-center" type="text" name="attr_race">
-				<br/>Race</div>
-			<div class="sheet-col-1-6 sheet-small-label sheet-center">
-				<input class="sheet-underlined sheet-center" type="text" name="attr_class">
-				<br/>Class</div>
+            <div class="sheet-col-1-2 sheet-padr">
+			    <div class="sheet-col-1-3 sheet-margin-top logo">
+                    <img src="https://static.wikia.nocookie.net/logopedia/images/4/41/Hellboy-2019-movie-logo.png/revision/latest" alt="Hellboy (5th edition)">
+                </div>
+            </div>
+            <div class="sheet-col-1-2 sheet-padr">
+                <div class="sheet-row">
+                    <div class="sheet-col-1-2 sheet-small-label sheet-center">
+                        <input class="sheet-underlined sheet-center" type="text" name="attr_character_name">
+                        <br/>Character Name</div>
+                    <div class="sheet-col-1-4 sheet-small-label sheet-center">
+                        <input class="sheet-underlined sheet-center" type="text" name="attr_origin">
+                        <br/>Origin</div>
+                    <div class="sheet-col-1-4 sheet-small-label sheet-center">
+                        <input class="sheet-underlined sheet-center" type="text" name="attr_classification">
+                        <br/>Classification</div>
+                </div>
+                <div class="sheet-row">
+                    <div class="sheet-col-1-2 sheet-small-label sheet-center">
+                        <input class="sheet-underlined sheet-center" type="text" name="attr_role">
+                        <br/>Role</div>
+                    <div class="sheet-col-1-2 sheet-small-label sheet-center">
+                        <input class="sheet-underlined sheet-center" type="text" name="attr_specialization">
+                        <br/>Specialization</div>
+                </div>
+            </div>
 		</div>
 	</div>
 	<div class="sheet-player">
@@ -700,16 +713,24 @@
                             <button type="roll" class="sheet-roll" name="roll_Use_HD_d10" value="&{template:5eDefault} {{title=Spending Hit Dice - 1d10}} {{subheader=@{character_name}}} {{rollname=HP regained}} {{roll=[[ 1d10 + @{constitution_mod} ]]}} ]]}} @{classactionhitdice}">Use</button>
                         </div>
                     </div>
-					<h4 class="sheet-center">Other <span class="sheet-pictos">o</span></h4>
+					<h4 class="sheet-center">Ingenuity <span class="sheet-pictos-custom">t</span></h4>
+                    <div class="sheet-row sheet-sub-header">
+                        <div class="sheet-col-4-7 sheet-center sheet-small-label">&nbsp;</div>
+                        <div class="sheet-col-1-7 sheet-center sheet-small-label">Current</div>
+                        <div class="sheet-col-1-7 sheet-center sheet-small-label">Max</div>
+                    </div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-5 sheet-center sheet-small-label sheet-sub-header sheet-padr">Inspiration?</div>
-						<div class="sheet-col-4-5 sheet-center sheet-small-label sheet-sub-header sheet-padl">Death Saving Throws</div>
-					</div>
-					<div class="sheet-row">
-						<div class="sheet-col-1-5 sheet-padr sheet-center sheet-margin-top">
-							<input class="sheet-inspiration" type="checkbox" name="attr_inspiration" value="1"><span class="sheet-inspiration-tab"></span>
-						</div>
-						<div class="sheet-col-3-5 sheet-padl">
+                        <div class="sheet-col-4-7 sheet-center sheet-small-label">&nbsp;</div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_ing" value="0" min="0" step="1">
+                        </div>
+                        <div class="sheet-col-1-7">
+                            <input type="number" name="attr_ing_max" value="@{PB} + 1" disabled="disabled">
+                        </div>
+                    </div>
+                    <h4 class="sheet-center">Death Saves <span class="sheet-pictos">t</span></h4>
+                    <div class="sheet-row">
+                        <div class="sheet-col-3-5 sheet-padl">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-margin-top sheet-small-label">Successes : </div>
 								<div class="sheet-col-3-4 sheet-center">
@@ -727,7 +748,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="sheet-col-1-5 sheet-margin-top">
+						<div class="sheet-col-2-5 sheet-margin-top">
 							<div class="sheet-row">
 								<div class="sheet-col-1-2 sheet-center">
 									<button type="roll" class="sheet-roll" name="roll_Death_Saving_Throw" value="@{ro_deathsave_whisper} &{template:5eDefault} {{character_name=@{character_name}}} {{title=Death Save}} {{subheader=@{character_name}}} {{deathsave=1}} {{simple=1}} {{rollname=Death save}} {{roll1=[[ 1d20 + [[@{global_saving_bonus}]] ]]}} @{ro_deathsave} @{classactiondeathsave}">Death Saving Throw</button>
