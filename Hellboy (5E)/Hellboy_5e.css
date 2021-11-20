@@ -250,7 +250,7 @@ input.sheet-is-npc {
 }
 
 span.sheet-is-npc-tab::before {
-	content: "Player Sheet - v0.0.1";
+	content: "Player Sheet";
 }
 
 span.sheet-is-npc-tab {

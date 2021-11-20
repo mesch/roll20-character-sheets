@@ -1001,191 +1001,109 @@
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_animalhandling" value="10 + @{animalhandling}" disabled="disabled">
 						</div>
 					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_arcana_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Arcana roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_arcana_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_arcana" value="@{ro_arcana_rolltype}@{ro_arcana_roll2_closing} @{ro_arcana_emoteprompt} @{ro_arcana_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Arcana_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Arcana (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{arcana}]] + [[@{global_check_bonus}]] ]]}} @{ro_arcana} @{classactionarcana}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_arcana_roll2_closing" value="+ [[@{arcana}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_arcana_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_arcana_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_arcana_showmath" value="{{math=1d20
-										+ [[@{arcana}]] [Skill mod]
-										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Arcana_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Arcana (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{arcana}]] + [[@{global_check_bonus}]] ]]}} @{ro_arcana} @{classactionarcana}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Arcana (Int)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_arcana_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_arcana_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_arcana" value="@{arcana_prof_exp}+@{intelligence_mod}+@{arcana_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_arcana" value="10 + @{arcana}" disabled="disabled">
-						</div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_athletics_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Athletics roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_athletics_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_athletics" value="@{ro_athletics_rolltype}@{ro_athletics_roll2_closing} @{ro_athletics_emoteprompt} @{ro_athletics_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_athletics_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Athletics (STR)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{athletics}]] + [[@{global_check_bonus}]] ]]}} @{ro_athletics} @{classactionathletics}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_athletics_roll2_closing" value="+ [[@{athletics}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_athletics_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_athletics_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_athletics_showmath" value="{{math=1d20
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_athletics_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Athletics roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_athletics_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_athletics" value="@{ro_athletics_rolltype}@{ro_athletics_roll2_closing} @{ro_athletics_emoteprompt} @{ro_athletics_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_athletics_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Athletics (STR)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{athletics}]] + [[@{global_check_bonus}]] ]]}} @{ro_athletics} @{classactionathletics}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_athletics_roll2_closing" value="+ [[@{athletics}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_athletics_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_athletics_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_athletics_showmath" value="{{math=1d20
 										+ [[@{athletics}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Athletics_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Athletics (STR)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{athletics}]] + [[@{global_check_bonus}]] ]]}} @{ro_athletics} @{classactionathletics}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Athletics (Str)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_athletics_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_athletics_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_athletics" value="@{athletics_prof_exp}+@{strength_mod}+@{athletics_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_athletics" value="10 + @{athletics}" disabled="disabled">
-						</div>
-					</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Athletics_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Athletics (STR)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{athletics}]] + [[@{global_check_bonus}]] ]]}} @{ro_athletics} @{classactionathletics}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Athletics (Str)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_athletics_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_athletics_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_athletics" value="@{athletics_prof_exp}+@{strength_mod}+@{athletics_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_athletics" value="10 + @{athletics}" disabled="disabled">
+                        </div>
+                    </div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_deception_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+							<input type="checkbox" name="attr_bureaucracy_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
 							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
 							<div class="sheet-ro-modal sheet-skill-modal">
 								<div>
 									<!-- Modal Title and close button row -->
 									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Deception roll options</div>
+										<div class="sheet-col-3-4 sheet-ro-title">Bureaucracy roll options</div>
 										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_deception_ro" class="sheet-ro-close-checkbox" value="1" />
+											<input type="checkbox" name="attr_bureaucracy_ro" class="sheet-ro-close-checkbox" value="1" />
 											<span class="sheet-ro-close-label"></span>
 										</div>
 									</div>
 									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_deception" value="@{ro_deception_rolltype}@{ro_deception_roll2_closing} @{ro_deception_emoteprompt} @{ro_deception_showmath}" />
+									<input type="hidden" name="attr_ro_bureaucracy" value="@{ro_bureaucracy_rolltype}@{ro_bureaucracy_roll2_closing} @{ro_bureaucracy_emoteprompt} @{ro_bureaucracy_showmath}" />
 									<!--Help text and copy of roll button-->
 									<div class="sheet-row sheet-padb">
 										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
 										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Deception_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Deception (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{deception}]] + [[@{global_check_bonus}]] ]]}} @{ro_deception} @{classactiondeception}">Roll</button>
+											<button type="roll" class="sheet-roll" name="roll_Bureaucracy_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Bureaucracy (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{bureaucracy}]] + [[@{global_check_bonus}]] ]]}} @{ro_bureaucracy} @{classactionbureaucracy}">Roll</button>
 										</div>
 									</div>
 									<hr/>
@@ -1193,8 +1111,8 @@
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_deception_roll2_closing" value="+ [[@{deception}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_deception_rolltype">
+											<input type="hidden" name="attr_ro_bureaucracy_roll2_closing" value="+ [[@{bureaucracy}]] + [[@{global_check_bonus}]] ]] }}" />
+											<select name="attr_ro_bureaucracy_rolltype">
 												<option value="@{ro_default_rolltype}">Use Default</option>
 												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
 												<option value="{{noadvroll=1}}">Roll 1d20</option>
@@ -1208,15 +1126,15 @@
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_deception_emoteprompt" value="{{emote=?{Emote text} }}">
+											<input type="checkbox" name="attr_ro_bureaucracy_emoteprompt" value="{{emote=?{Emote text} }}">
 										</div>
 									</div>
 									<hr/>
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_deception_showmath" value="{{math=1d20
-										+ [[@{deception}]] [Skill mod]
+											<input type="checkbox" name="attr_ro_bureaucracy_showmath" value="{{math=1d20
+										+ [[@{bureaucracy}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
 										</div>
 									</div>
@@ -1226,11 +1144,11 @@
 							<!-- close outer modal div -->
 						</div>
 						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Deception_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Deception (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{deception}]] + [[@{global_check_bonus}]] ]]}} @{ro_deception} @{classactiondeception}"></button>
+							<button class="sheet-skill-roll" type="roll" name="roll_Bureaucracy_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Science (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{bureaucracy}]] + [[@{global_check_bonus}]] ]]}} @{ro_bureaucracy} @{classactionbureaucracy}"></button>
 						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Deception (Cha)</div>
+						<div class="sheet-col-7-24 sheet-skill-name">Bureaucracy (Int)</div>
 						<div class="sheet-col-1-4">
-							<select name="attr_deception_prof_exp">
+							<select name="attr_bureaucracy_prof_exp">
 								<option value="0">No</option>
 								<option value="floor(@{PB} / 2)">Jack of all trades</option>
 								<option value="@{PB}">Yes</option>
@@ -1238,232 +1156,232 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8">
-							<input type="number" name="attr_deception_bonus" value="0" step="1" />
+							<input type="number" name="attr_bureaucracy_bonus" value="0" step="1" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_deception" value="@{deception_prof_exp}+@{charisma_mod}+@{deception_bonus}" disabled="disabled">
+							<input type="number" name="attr_bureaucracy" value="@{bureaucracy_prof_exp}+@{intelligence_mod}+@{bureaucracy_bonus}" disabled="disabled">
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_deception" value="10 + @{deception}" disabled="disabled">
+							<input type="number" class="sheet-passive-skill-score" name="attr_passive_bureaucracy" value="10 + @{bureaucracy}" disabled="disabled">
 						</div>
 					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_history_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">History roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_history_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_history" value="@{ro_history_rolltype}@{ro_history_roll2_closing} @{ro_history_emoteprompt} @{ro_history_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_History_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=History (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{history}]] + [[@{global_check_bonus}]] ]]}} @{ro_history} @{classactionhistory}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_history_roll2_closing" value="+ [[@{history}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_history_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_history_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_history_showmath" value="{{math=1d20
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_history_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">History roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_history_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_history" value="@{ro_history_rolltype}@{ro_history_roll2_closing} @{ro_history_emoteprompt} @{ro_history_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_History_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=History (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{history}]] + [[@{global_check_bonus}]] ]]}} @{ro_history} @{classactionhistory}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_history_roll2_closing" value="+ [[@{history}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_history_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_history_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_history_showmath" value="{{math=1d20
 										+ [[@{history}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_History_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=History (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{history}]] + [[@{global_check_bonus}]] ]]}} @{ro_history} @{classactionhistory}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">History (Int)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_history_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_history_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_history" value="@{history_prof_exp}+@{intelligence_mod}+@{history_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_history" value="10 + @{history}" disabled="disabled">
-						</div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_insight_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Insight roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_insight_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_insight" value="@{ro_insight_rolltype}@{ro_insight_roll2_closing} @{ro_insight_emoteprompt} @{ro_insight_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Insight_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Insight (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{insight}]] + [[@{global_check_bonus}]] ]]}} @{ro_insight} @{classactioninsight}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_insight_roll2_closing" value="+ [[@{insight}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_insight_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_insight_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_insight_showmath" value="{{math=1d20
-										+ [[@{insight}]] [Skill mod]
-										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Insight_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Insight (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{insight}]] + [[@{global_check_bonus}]] ]]}} @{ro_insight} @{classactioninsight}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Insight (Wis)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_insight_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_insight_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_insight" value="@{insight_prof_exp}+@{wisdom_mod}+@{insight_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_insight" value="10 + @{insight}" disabled="disabled">
-						</div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_intimidation_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Intimidation roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_intimidation_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_intimidation" value="@{ro_intimidation_rolltype}@{ro_intimidation_roll2_closing} @{ro_intimidation_emoteprompt} @{ro_intimidation_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Intimidation_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intimidation (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intimidation}]] + [[@{global_check_bonus}]] ]]}} @{ro_intimidation} @{classactionintimidation}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_intimidation_roll2_closing" value="+ [[@{intimidation}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_intimidation_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_intimidation_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_intimidation_showmath" value="{{math=1d20
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_History_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=History (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{history}]] + [[@{global_check_bonus}]] ]]}} @{ro_history} @{classactionhistory}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">History (Int)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_history_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_history_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_history" value="@{history_prof_exp}+@{intelligence_mod}+@{history_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_history" value="10 + @{history}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_intimidation_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Intimidation roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_intimidation_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_intimidation" value="@{ro_intimidation_rolltype}@{ro_intimidation_roll2_closing} @{ro_intimidation_emoteprompt} @{ro_intimidation_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Intimidation_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intimidation (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intimidation}]] + [[@{global_check_bonus}]] ]]}} @{ro_intimidation} @{classactionintimidation}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_intimidation_roll2_closing" value="+ [[@{intimidation}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_intimidation_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_intimidation_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_intimidation_showmath" value="{{math=1d20
 										+ [[@{intimidation}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Intimidation_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intimidation (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intimidation}]] + [[@{global_check_bonus}]] ]]}} @{ro_intimidation} @{classactionintimidation}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Intimidation (Cha)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_intimidation_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_intimidation_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_intimidation" value="@{intimidation_prof_exp}+@{charisma_mod}+@{intimidation_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_intimidation" value="10 + @{intimidation}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="sheet-row sheet-skill-row">
+						<div class="sheet-col-1-12 sheet-align-center">
+							<input type="checkbox" name="attr_intuition_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+							<div class="sheet-ro-modal sheet-skill-modal">
+								<div>
+									<!-- Modal Title and close button row -->
+									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+										<div class="sheet-col-3-4 sheet-ro-title">Intuition roll options</div>
+										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
+											<input type="checkbox" name="attr_intuition_ro" class="sheet-ro-close-checkbox" value="1" />
+											<span class="sheet-ro-close-label"></span>
+										</div>
+									</div>
+									<!-- define hidden attribute to store summary of all options selected -->
+									<input type="hidden" name="attr_ro_intuition" value="@{ro_intuition_rolltype}@{ro_intuition_roll2_closing} @{ro_intuition_emoteprompt} @{ro_intuition_showmath}" />
+									<!--Help text and copy of roll button-->
+									<div class="sheet-row sheet-padb">
+										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+										<div class="sheet-col-1-3 sheet-padl">
+											<button type="roll" class="sheet-roll" name="roll_Intuition_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intuition (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intuition}]] + [[@{global_check_bonus}]] ]]}} @{ro_intuition} @{classactionintuition}">Roll</button>
+										</div>
+									</div>
+									<hr/>
+									<!-- Define options here -->
+									<div class="sheet-row sheet-checkbox-row">
+										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+											<input type="hidden" name="attr_ro_intuition_roll2_closing" value="+ [[@{intuition}]] + [[@{global_check_bonus}]] ]] }}" />
+											<select name="attr_ro_intuition_rolltype">
+												<option value="@{ro_default_rolltype}">Use Default</option>
+												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+												<option value="{{noadvroll=1}}">Roll 1d20</option>
+												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+											</select>
+										</div>
+									</div>
+									<hr/>
+									<div class="sheet-row sheet-checkbox-row">
+										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+											<input type="checkbox" name="attr_ro_intuition_emoteprompt" value="{{emote=?{Emote text} }}">
+										</div>
+									</div>
+									<hr/>
+									<div class="sheet-row sheet-checkbox-row">
+										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+											<input type="checkbox" name="attr_ro_intuition_showmath" value="{{math=1d20
+										+ [[@{intuition}]] [Skill mod]
+										+ (@{global_check_bonus}) [Global skill bonus]}}">
 										</div>
 									</div>
 								</div>
@@ -1472,11 +1390,11 @@
 							<!-- close outer modal div -->
 						</div>
 						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Intimidation_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intimidation (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intimidation}]] + [[@{global_check_bonus}]] ]]}} @{ro_intimidation} @{classactionintimidation}"></button>
+							<button class="sheet-skill-roll" type="roll" name="roll_Intuition_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Intuition (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{intuition}]] + [[@{global_check_bonus}]] ]]}} @{ro_intuition} @{classactionintuition}"></button>
 						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Intimidation (Cha)</div>
+						<div class="sheet-col-7-24 sheet-skill-name">Intuition (Wis)</div>
 						<div class="sheet-col-1-4">
-							<select name="attr_intimidation_prof_exp">
+							<select name="attr_intuition_prof_exp">
 								<option value="0">No</option>
 								<option value="floor(@{PB} / 2)">Jack of all trades</option>
 								<option value="@{PB}">Yes</option>
@@ -1484,13 +1402,13 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8">
-							<input type="number" name="attr_intimidation_bonus" value="0" step="1" />
+							<input type="number" name="attr_intuition_bonus" value="0" step="1" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_intimidation" value="@{intimidation_prof_exp}+@{charisma_mod}+@{intimidation_bonus}" disabled="disabled">
+							<input type="number" name="attr_intuition" value="@{intuition_prof_exp}+@{wisdom_mod}+@{intuition_bonus}" disabled="disabled">
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_intimidation" value="10 + @{intimidation}" disabled="disabled">
+							<input type="number" class="sheet-passive-skill-score" name="attr_passive_intuition" value="10 + @{intuition}" disabled="disabled">
 						</div>
 					</div>
 					<div class="sheet-row sheet-skill-row">
@@ -1513,7 +1431,7 @@
 									<div class="sheet-row sheet-padb">
 										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
 										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Investigation_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Investigation (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{investigation}]] + [[@{global_check_bonus}]] ]]}} @{ro_investigation} @{classactioninvestigation}">Roll</button>
+											<button type="roll" class="sheet-roll" name="roll_Investigation_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Investigation (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{investigation}]] + [[@{global_check_bonus}]] ]]}} @{ro_investigation} @{classactioninvestigation}">Roll</button>
 										</div>
 									</div>
 									<hr/>
@@ -1554,9 +1472,9 @@
 							<!-- close outer modal div -->
 						</div>
 						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Investigation_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Investigation (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{investigation}]] + [[@{global_check_bonus}]] ]]}} @{ro_investigation} @{classactioninvestigation}"></button>
+							<button class="sheet-skill-roll" type="roll" name="roll_Investigation_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Investigation (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{investigation}]] + [[@{global_check_bonus}]] ]]}} @{ro_investigation} @{classactioninvestigation}"></button>
 						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Investigation (Int)</div>
+						<div class="sheet-col-7-24 sheet-skill-name">Investigation (WIS)</div>
 						<div class="sheet-col-1-4">
 							<select name="attr_investigation_prof_exp">
 								<option value="0">No</option>
@@ -1569,12 +1487,94 @@
 							<input type="number" name="attr_investigation_bonus" value="0" step="1" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_investigation" value="@{investigation_prof_exp}+@{intelligence_mod}+@{investigation_bonus}" disabled="disabled">
+							<input type="number" name="attr_investigation" value="@{investigation_prof_exp}+@{wisdom_mod}+@{investigation_bonus}" disabled="disabled">
 						</div>
 						<div class="sheet-col-1-12">
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_investigation" value="10 + @{investigation}" disabled="disabled">
 						</div>
 					</div>
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_medicine_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Medicine roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_medicine_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_medicine" value="@{ro_medicine_rolltype}@{ro_medicine_roll2_closing} @{ro_medicine_emoteprompt} @{ro_medicine_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Medicine_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Medicine (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{medicine}]] + [[@{global_check_bonus}]] ]]}} @{ro_medicine} @{classactionmedicine}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_medicine_roll2_closing" value="+ [[@{medicine}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_medicine_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_medicine_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_medicine_showmath" value="{{math=1d20
+										+ [[@{medicine}]] [Skill mod]
+										+ (@{global_check_bonus}) [Global skill bonus]}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Medicine_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Medicine (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{medicine}]] + [[@{global_check_bonus}]] ]]}} @{ro_medicine} @{classactionmedicine}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Medicine (Wis)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_medicine_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_medicine_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_medicine" value="@{medicine_prof_exp}+@{wisdom_mod}+@{medicine_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_medicine" value="10 + @{medicine}" disabled="disabled">
+                        </div>
+                    </div>
 				</div>
 				<div class="sheet-col-1-2">
 					<div class="sheet-row sheet-sub-header">
@@ -1585,170 +1585,88 @@
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Pass</div>
 					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_medicine_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Medicine roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_medicine_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_medicine" value="@{ro_medicine_rolltype}@{ro_medicine_roll2_closing} @{ro_medicine_emoteprompt} @{ro_medicine_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Medicine_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Medicine (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{medicine}]] + [[@{global_check_bonus}]] ]]}} @{ro_medicine} @{classactionmedicine}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_medicine_roll2_closing" value="+ [[@{medicine}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_medicine_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_medicine_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_medicine_showmath" value="{{math=1d20
-										+ [[@{medicine}]] [Skill mod]
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_occult_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Occult roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_occult_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_occult" value="@{ro_occult_rolltype}@{ro_occult_roll2_closing} @{ro_occult_emoteprompt} @{ro_occult_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Occult_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Occult (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{occult}]] + [[@{global_check_bonus}]] ]]}} @{ro_occult} @{classactionoccult}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_occult_roll2_closing" value="+ [[@{occult}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_occult_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_occult_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_occult_showmath" value="{{math=1d20
+										+ [[@{occult}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Medicine_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Medicine (WIS)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{medicine}]] + [[@{global_check_bonus}]] ]]}} @{ro_medicine} @{classactionmedicine}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Medicine (Wis)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_medicine_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_medicine_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_medicine" value="@{medicine_prof_exp}+@{wisdom_mod}+@{medicine_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_medicine" value="10 + @{medicine}" disabled="disabled">
-						</div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_nature_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Nature roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_nature_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_nature" value="@{ro_nature_rolltype}@{ro_nature_roll2_closing} @{ro_nature_emoteprompt} @{ro_nature_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Nature_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Nature (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{nature}]] + [[@{global_check_bonus}]] ]]}} @{ro_nature} @{classactionnature}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_nature_roll2_closing" value="+ [[@{nature}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_nature_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_nature_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_nature_showmath" value="{{math=1d20
-										+ [[@{nature}]] [Skill mod]
-										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Nature_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Nature (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{nature}]] + [[@{global_check_bonus}]] ]]}} @{ro_nature} @{classactionnature}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Nature (Int)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_nature_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_nature_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_nature" value="@{nature_prof_exp}+@{intelligence_mod}+@{nature_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_nature" value="10 + @{nature}" disabled="disabled">
-						</div>
-					</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Occult_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Occult (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{occult}]] + [[@{global_check_bonus}]] ]]}} @{ro_occult} @{classactionoccult}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Occult (Int)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_occult_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_occult_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_occult" value="@{occult_prof_exp}+@{intelligence_mod}+@{occult_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_occult" value="10 + @{occult}" disabled="disabled">
+                        </div>
+                    </div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
 							<input type="checkbox" name="attr_perception_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
@@ -1833,88 +1751,6 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_performance_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Performance roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_performance_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_performance" value="@{ro_performance_rolltype}@{ro_performance_roll2_closing} @{ro_performance_emoteprompt} @{ro_performance_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Performance_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Performance (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{performance}]] + [[@{global_check_bonus}]] ]]}} @{ro_performance} @{classactionperformance}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_performance_roll2_closing" value="+ [[@{performance}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_performance_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_performance_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_performance_showmath" value="{{math=1d20
-										+ [[@{performance}]] [Skill mod]
-										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Performance_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Performance (CHA)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{performance}]] + [[@{global_check_bonus}]] ]]}} @{ro_performance} @{classactionperformance}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Performance (Cha)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_performance_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_performance_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_performance" value="@{performance_prof_exp}+@{charisma_mod}+@{performance_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_performance" value="10 + @{performance}" disabled="disabled">
-						</div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
 							<input type="checkbox" name="attr_persuasion_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
 							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
 							<div class="sheet-ro-modal sheet-skill-modal">
@@ -1995,109 +1831,191 @@
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_persuasion" value="10 + @{persuasion}" disabled="disabled">
 						</div>
 					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_religion_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
-							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
-							<div class="sheet-ro-modal sheet-skill-modal">
-								<div>
-									<!-- Modal Title and close button row -->
-									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Religion roll options</div>
-										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_religion_ro" class="sheet-ro-close-checkbox" value="1" />
-											<span class="sheet-ro-close-label"></span>
-										</div>
-									</div>
-									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_religion" value="@{ro_religion_rolltype}@{ro_religion_roll2_closing} @{ro_religion_emoteprompt} @{ro_religion_showmath}" />
-									<!--Help text and copy of roll button-->
-									<div class="sheet-row sheet-padb">
-										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
-										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_Religion_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Religion (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{religion}]] + [[@{global_check_bonus}]] ]]}} @{ro_religion} @{classactionreligion}">Roll</button>
-										</div>
-									</div>
-									<hr/>
-									<!-- Define options here -->
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_religion_roll2_closing" value="+ [[@{religion}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_religion_rolltype">
-												<option value="@{ro_default_rolltype}">Use Default</option>
-												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
-												<option value="{{noadvroll=1}}">Roll 1d20</option>
-												<option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
-												<option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
-												<option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
-											</select>
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_religion_emoteprompt" value="{{emote=?{Emote text} }}">
-										</div>
-									</div>
-									<hr/>
-									<div class="sheet-row sheet-checkbox-row">
-										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
-										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_religion_showmath" value="{{math=1d20
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_religion_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Religion roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_religion_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_religion" value="@{ro_religion_rolltype}@{ro_religion_roll2_closing} @{ro_religion_emoteprompt} @{ro_religion_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Religion_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Religion (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{religion}]] + [[@{global_check_bonus}]] ]]}} @{ro_religion} @{classactionreligion}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_religion_roll2_closing" value="+ [[@{religion}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_religion_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_religion_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_religion_showmath" value="{{math=1d20
 										+ [[@{religion}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
-										</div>
-									</div>
-								</div>
-								<!-- close inner modal div -->
-							</div>
-							<!-- close outer modal div -->
-						</div>
-						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_Religion_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Religion (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{religion}]] + [[@{global_check_bonus}]] ]]}} @{ro_religion} @{classactionreligion}"></button>
-						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Religion (Int)</div>
-						<div class="sheet-col-1-4">
-							<select name="attr_religion_prof_exp">
-								<option value="0">No</option>
-								<option value="floor(@{PB} / 2)">Jack of all trades</option>
-								<option value="@{PB}">Yes</option>
-								<option value="(2*@{PB})">Expertise</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-8">
-							<input type="number" name="attr_religion_bonus" value="0" step="1" />
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" name="attr_religion" value="@{religion_prof_exp}+@{intelligence_mod}+@{religion_bonus}" disabled="disabled">
-						</div>
-						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_religion" value="10 + @{religion}" disabled="disabled">
-						</div>
-					</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Religion_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Religion (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{religion}]] + [[@{global_check_bonus}]] ]]}} @{ro_religion} @{classactionreligion}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Religion (Int)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_religion_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_religion_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_religion" value="@{religion_prof_exp}+@{intelligence_mod}+@{religion_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_religion" value="10 + @{religion}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_science_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Science roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_science_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_science" value="@{ro_science_rolltype}@{ro_science_roll2_closing} @{ro_science_emoteprompt} @{ro_science_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Science_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Science (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{science}]] + [[@{global_check_bonus}]] ]]}} @{ro_science} @{classactionscience}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_science_roll2_closing" value="+ [[@{science}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_science_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_science_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_science_showmath" value="{{math=1d20
+										+ [[@{science}]] [Skill mod]
+										+ (@{global_check_bonus}) [Global skill bonus]}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Science_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Science (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{science}]] + [[@{global_check_bonus}]] ]]}} @{ro_science} @{classactionscience}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Science (Int)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_science_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_science_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_science" value="@{science_prof_exp}+@{intelligence_mod}+@{science_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_science" value="10 + @{science}" disabled="disabled">
+                        </div>
+                    </div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12 sheet-align-center">
-							<input type="checkbox" name="attr_sleightofhand_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+							<input type="checkbox" name="attr_steadyhands_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
 							<!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
 							<div class="sheet-ro-modal sheet-skill-modal">
 								<div>
 									<!-- Modal Title and close button row -->
 									<div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
-										<div class="sheet-col-3-4 sheet-ro-title">Sleight of hand roll options</div>
+										<div class="sheet-col-3-4 sheet-ro-title">Steady Hands roll options</div>
 										<div class="sheet-col-1-4 sheet-ro-close-wrapper">
-											<input type="checkbox" name="attr_sleightofhand_ro" class="sheet-ro-close-checkbox" value="1" />
+											<input type="checkbox" name="attr_steadyhands_ro" class="sheet-ro-close-checkbox" value="1" />
 											<span class="sheet-ro-close-label"></span>
 										</div>
 									</div>
 									<!-- define hidden attribute to store summary of all options selected -->
-									<input type="hidden" name="attr_ro_sleightofhand" value="@{ro_sleightofhand_rolltype}@{ro_sleightofhand_roll2_closing} @{ro_sleightofhand_emoteprompt} @{ro_sleightofhand_showmath}" />
+									<input type="hidden" name="attr_ro_steadyhands" value="@{ro_steadyhands_rolltype}@{ro_steadyhands_roll2_closing} @{ro_steadyhands_emoteprompt} @{ro_steadyhands_showmath}" />
 									<!--Help text and copy of roll button-->
 									<div class="sheet-row sheet-padb">
 										<div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
 										<div class="sheet-col-1-3 sheet-padl">
-											<button type="roll" class="sheet-roll" name="roll_SleightOfHand_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Sleight of hand (DEX)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{sleightofhand}]] + [[@{global_check_bonus}]] ]]}} @{ro_sleightofhand} @{classactionsleightofhand}">Roll</button>
+											<button type="roll" class="sheet-roll" name="roll_SteadyHands_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Steady Hands (DEX)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{steadyhands}]] + [[@{global_check_bonus}]] ]]}} @{ro_steadyhands} @{classactionsteadyhands}">Roll</button>
 										</div>
 									</div>
 									<hr/>
@@ -2105,8 +2023,8 @@
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="hidden" name="attr_ro_sleightofhand_roll2_closing" value="+ [[@{sleightofhand}]] + [[@{global_check_bonus}]] ]] }}" />
-											<select name="attr_ro_sleightofhand_rolltype">
+											<input type="hidden" name="attr_ro_steadyhands_roll2_closing" value="+ [[@{steadyhands}]] + [[@{global_check_bonus}]] ]] }}" />
+											<select name="attr_ro_steadyhands_rolltype">
 												<option value="@{ro_default_rolltype}">Use Default</option>
 												<option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
 												<option value="{{noadvroll=1}}">Roll 1d20</option>
@@ -2120,15 +2038,15 @@
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_sleightofhand_emoteprompt" value="{{emote=?{Emote text} }}">
+											<input type="checkbox" name="attr_ro_steadyhands_emoteprompt" value="{{emote=?{Emote text} }}">
 										</div>
 									</div>
 									<hr/>
 									<div class="sheet-row sheet-checkbox-row">
 										<div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
 										<div class="sheet-col-2-3 sheet-padl sheet-ro-option">
-											<input type="checkbox" name="attr_ro_sleightofhand_showmath" value="{{math=1d20
-										+ [[@{sleightofhand}]] [Skill mod]
+											<input type="checkbox" name="attr_ro_steadyhands_showmath" value="{{math=1d20
+										+ [[@{steadyhands}]] [Skill mod]
 										+ (@{global_check_bonus}) [Global skill bonus]}}">
 										</div>
 									</div>
@@ -2138,11 +2056,11 @@
 							<!-- close outer modal div -->
 						</div>
 						<div class="sheet-col-1-12">
-							<button class="sheet-skill-roll" type="roll" name="roll_SleightOfHand_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Sleight of hand (DEX)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{sleightofhand}]] + [[@{global_check_bonus}]] ]]}} @{ro_sleightofhand} @{classactionsleightofhand}"></button>
+							<button class="sheet-skill-roll" type="roll" name="roll_SteadyHands_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Steady Hands (DEX)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{steadyhands}]] + [[@{global_check_bonus}]] ]]}} @{ro_steadyhands} @{classactionsteadyhands}"></button>
 						</div>
-						<div class="sheet-col-7-24 sheet-skill-name">Sleight of Hand (Dex)</div>
+						<div class="sheet-col-7-24 sheet-skill-name">Steady Hands (Dex)</div>
 						<div class="sheet-col-1-4">
-							<select name="attr_sleightofhand_prof_exp">
+							<select name="attr_steadyhands_prof_exp">
 								<option value="0">No</option>
 								<option value="floor(@{PB} / 2)">Jack of all trades</option>
 								<option value="@{PB}">Yes</option>
@@ -2150,13 +2068,13 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8">
-							<input type="number" name="attr_sleightofhand_bonus" value="0" step="1" />
+							<input type="number" name="attr_steadyhands_bonus" value="0" step="1" />
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" name="attr_sleightofhand" value="@{sleightofhand_prof_exp}+@{dexterity_mod}+@{sleightofhand_bonus}" disabled="disabled">
+							<input type="number" name="attr_steadyhands" value="@{steadyhands_prof_exp}+@{dexterity_mod}+@{steadyhands_bonus}" disabled="disabled">
 						</div>
 						<div class="sheet-col-1-12">
-							<input type="number" class="sheet-passive-skill-score" name="attr_passive_sleightofhand" value="10 + @{sleightofhand}" disabled="disabled">
+							<input type="number" class="sheet-passive-skill-score" name="attr_passive_steadyhands" value="10 + @{steadyhands}" disabled="disabled">
 						</div>
 					</div>
 					<div class="sheet-row sheet-skill-row">
@@ -2323,6 +2241,88 @@
 							<input type="number" class="sheet-passive-skill-score" name="attr_passive_survival" value="10 + @{survival}" disabled="disabled">
 						</div>
 					</div>
+                    <div class="sheet-row sheet-skill-row">
+                        <div class="sheet-col-1-12 sheet-align-center">
+                            <input type="checkbox" name="attr_technology_ro" class="sheet-ro-checkbox" value="1" /><span class="sheet-ro-label">y</span>
+                            <!-- Modal template Should be placed as the first element immediately after the input checkbox to open it -->
+                            <div class="sheet-ro-modal sheet-skill-modal">
+                                <div>
+                                    <!-- Modal Title and close button row -->
+                                    <div class="sheet-row sheet-ro-header sheet-border-bottom sheet-padb">
+                                        <div class="sheet-col-3-4 sheet-ro-title">Technology roll options</div>
+                                        <div class="sheet-col-1-4 sheet-ro-close-wrapper">
+                                            <input type="checkbox" name="attr_technology_ro" class="sheet-ro-close-checkbox" value="1" />
+                                            <span class="sheet-ro-close-label"></span>
+                                        </div>
+                                    </div>
+                                    <!-- define hidden attribute to store summary of all options selected -->
+                                    <input type="hidden" name="attr_ro_technology" value="@{ro_technology_rolltype}@{ro_technology_roll2_closing} @{ro_technology_emoteprompt} @{ro_technology_showmath}" />
+                                    <!--Help text and copy of roll button-->
+                                    <div class="sheet-row sheet-padb">
+                                        <div class="sheet-col-2-3 sheet-small-note">The settings here apply <b>only</b> to the roll specified in the title above. </div>
+                                        <div class="sheet-col-1-3 sheet-padl">
+                                            <button type="roll" class="sheet-roll" name="roll_Technology_Check_ro" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Technology (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{technology}]] + [[@{global_check_bonus}]] ]]}} @{ro_technology} @{classactiontechnology}">Roll</button>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <!-- Define options here -->
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Roll type</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="hidden" name="attr_ro_technology_roll2_closing" value="+ [[@{technology}]] + [[@{global_check_bonus}]] ]] }}" />
+                                            <select name="attr_ro_technology_rolltype">
+                                                <option value="@{ro_default_rolltype}">Use Default</option>
+                                                <option value="{{showadvroll=1}} {{roll2=[[ 1d20 ">Roll 2d20</option>
+                                                <option value="{{noadvroll=1}}">Roll 1d20</option>
+                                                <option value="?{Roll type?|Normal,&#123&#123noadvroll=1&#125&#125 |Advantage,&#123&#123rollhasadv=1&#125&#125 &#123&#123roll2=[[1d20  |Disadvantage,&#123&#123rollhasdisadv=1&#125&#125 &#123&#123roll2=[[1d20}">Prompt for adv/disadv</option>
+                                                <option value="{{rollhasadv=1}} {{roll2=[[ 1d20 ">ALWAYS Advantage</option>
+                                                <option value="{{rollhasdisadv=1}} {{roll2=[[ 1d20 ">ALWAYS Disadvantage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Prompt for emote?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_technology_emoteprompt" value="{{emote=?{Emote text} }}">
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="sheet-row sheet-checkbox-row">
+                                        <div class="sheet-col-1-3 sheet-ro-optionlabel">Show math?</div>
+                                        <div class="sheet-col-2-3 sheet-padl sheet-ro-option">
+                                            <input type="checkbox" name="attr_ro_technology_showmath" value="{{math=1d20
+										+ [[@{technology}]] [Skill mod]
+										+ (@{global_check_bonus}) [Global skill bonus]}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- close inner modal div -->
+                            </div>
+                            <!-- close outer modal div -->
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <button class="sheet-skill-roll" type="roll" name="roll_Technology_Check" value="&{template:5eDefault} {{character_name=@{character_name}}} {{title=Technology (INT)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}}  {{ability=1}} {{simple=1}} {{rollname=Result}} {{roll1=[[ 1d20 + [[@{technology}]] + [[@{global_check_bonus}]] ]]}} @{ro_technology} @{classactiontechnology}"></button>
+                        </div>
+                        <div class="sheet-col-7-24 sheet-skill-name">Technology (Int)</div>
+                        <div class="sheet-col-1-4">
+                            <select name="attr_technology_prof_exp">
+                                <option value="0">No</option>
+                                <option value="floor(@{PB} / 2)">Jack of all trades</option>
+                                <option value="@{PB}">Yes</option>
+                                <option value="(2*@{PB})">Expertise</option>
+                            </select>
+                        </div>
+                        <div class="sheet-col-1-8">
+                            <input type="number" name="attr_technology_bonus" value="0" step="1" />
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" name="attr_technology" value="@{technology_prof_exp}+@{intelligence_mod}+@{technology_bonus}" disabled="disabled">
+                        </div>
+                        <div class="sheet-col-1-12">
+                            <input type="number" class="sheet-passive-skill-score" name="attr_passive_technology" value="10 + @{technology}" disabled="disabled">
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<hr />
