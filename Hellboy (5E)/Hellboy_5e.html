@@ -75,7 +75,7 @@
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3" />
 		<span class="sheet-tab sheet-tab3">Background</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4" />
-		<span class="sheet-tab sheet-tab4">Class</span>
+		<span class="sheet-tab sheet-tab4">Role</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5" />
 		<span class="sheet-tab sheet-tab5">Weapons</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6" />
@@ -3295,12 +3295,12 @@
 			</div>
 			<hr/>
 		</div>
-		<div class="sheet-section-class">
-			<h4 class="sheet-center">Class Levels, Features, Notes and Feats<span class="sheet-pictos">Y</span></h4>
+		<div class="sheet-section-role">
+			<h4 class="sheet-center">Role Levels, Features, Notes and Feats<span class="sheet-pictos">Y</span></h4>
 			<div class="sheet-row">
 				<div class="sheet-col-7-12 sheet-padr">
 					<div class="sheet-row sheet-sub-header">
-						<div class="sheet-col-1 sheet-center sheet-small-label">Class Levels</div>
+						<div class="sheet-col-1 sheet-center sheet-small-label">Role Levels</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-center sheet-margin-top">Field Agent</div>
@@ -3333,7 +3333,7 @@
 				</div>
 				<div class="sheet-col-5-12">
 					<div class="sheet-row sheet-sub-header">
-						<div class="sheet-col-1 sheet-center sheet-small-label">Class Resources</div>
+						<div class="sheet-col-1 sheet-center sheet-small-label">Role Resources</div>
 					</div>
 					<div class="sheet-row">
 
@@ -3350,8 +3350,8 @@
 							<div class="sheet-col-1-4">
 								<select name="attr_ClassResourceRecharge">
 									<option value="None">None</option>
-									<option value="Short Rest">Short Rest</option>
-									<option value="Long rest">Long Rest</option>
+									<option value="Take Time">Take Time</option>
+									<option value="Long rest">Return to Base</option>
 									<option value="Other">Other</option>
 								</select>
 							</div>
@@ -3365,25 +3365,25 @@
 					</fieldset>
 				</div>
 			</div>
-			<h4 class="sheet-center">Class and Racial Notes <span class="sheet-pictos">l</span></h4>
+			<h4 class="sheet-center">Role and Origin Notes <span class="sheet-pictos">l</span></h4>
 			<div class="sheet-row">
 				<div class="sheet-col-1-2 sheet-padr">
 					<div class="sheet-row">
-						<div class="sheet-col-1 sheet-sub-header sheet-center sheet-small-label">Class feature notes</div>
+						<div class="sheet-col-1 sheet-sub-header sheet-center sheet-small-label">Role feature notes</div>
 					</div>
 					<textarea name="attr_class_features" class="sheet-large-textarea"></textarea>
 				</div>
 				<div class="sheet-col-1-2">
 					<div class="sheet-row">
-						<div class="sheet-col-1 sheet-sub-header sheet-center sheet-small-label">Other Class Abilities, Notes and Feats</div>
+						<div class="sheet-col-1 sheet-sub-header sheet-center sheet-small-label">Other Role Abilities, Notes and Feats</div>
 					</div>
 					<textarea name="attr_class_abilities_and_feats" class="sheet-large-textarea"></textarea>
 				</div>
 			</div>
-			<h4 class="sheet-center">Class Actions <span class="sheet-pictos">l</span></h4>
+			<h4 class="sheet-center">Role Actions <span class="sheet-pictos">l</span></h4>
 			<div class="sheet-row">
 				<div class="sheet-col-1">
-					<p class="sheet-small-note">Add any class or racial features or abilities you gain in here (or in the large text sections at the bottom of this section). Adding them here allows you to use them either as their own macro (by using the roll button on each row), or auto include them as part of a another roll made on the sheet by checking the option in the entry. For example, a rogue may add their sneak attack feature here, and either use it by clicking on the Use button when required, and/or check the boxes to auto include it in melee and ranged weapon macros.</p>
+					<p class="sheet-small-note">Add any role or origin features or abilities you gain in here (or in the large text sections at the bottom of this section). Adding them here allows you to use them either as their own macro (by using the roll button on each row), or auto include them as part of a another roll made on the sheet by checking the option in the entry. For example, a rogue may add their sneak attack feature here, and either use it by clicking on the Use button when required, and/or check the boxes to auto include it in melee and ranged weapon macros.</p>
 				</div>
 			</div>
 			<input type="radio" name="attr_classactiontab" class="sheet-classactiontab sheet-classactiontab1" value="1" title="Page 1" checked="checked" />
@@ -3425,26 +3425,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge1">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource1">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -3765,27 +3755,17 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge2">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource2">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
-								<option value="Feat">Feat</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
+                                <option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
@@ -4105,26 +4085,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge3">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource3">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -4445,26 +4415,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge4">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource4">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -4785,26 +4745,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge5">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource5">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -5129,26 +5079,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge6">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource6">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -5469,26 +5409,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge7">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource7">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -5809,26 +5739,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge8">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource8">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -6149,26 +6069,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge9">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource9">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -6489,26 +6399,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge10">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource10">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -6833,26 +6733,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge11">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource11">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -7173,26 +7063,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge12">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource12">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -7513,26 +7393,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge13">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource13">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -7853,26 +7723,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge14">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource14">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -8193,26 +8053,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge15">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource15">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -8537,26 +8387,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge16">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource16">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -8877,26 +8717,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge17">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource17">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -9217,26 +9047,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge18">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource18">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -9557,26 +9377,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge19">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource19">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
@@ -9897,26 +9707,16 @@
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionrecharge20">
 								<option value="None">None</option>
-								<option value="Short Rest">Short Rest</option>
-								<option value="Long rest">Long Rest</option>
+								<option value="Take Time">Take Time</option>
+								<option value="Long rest">Return to Base</option>
 								<option value="Other">Other</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-6">
 							<select name="attr_classactionsource20">
 								<option value="Not set" selected="selected">---</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Wizard">Wizard</option>
+								<option value="Role">Role</option>
+								<option value="Origin">Origin</option>
 								<option value="Feat">Feat</option>
 								<option value="Other">Other</option>
 							</select>
